@@ -7,9 +7,10 @@
     color?: string;
     hoverColor?: string;
     zIndex?: number;
+    speed?: number;
   }
 
-  let { href = '/mitmachen', label = 'Mitmachen', color = '#7954A2', hoverColor = '#2d1d3f', zIndex = 10 }: Props = $props();
+  let { href = '/mitmachen', label = 'Mitmachen', color = '#7954A2', hoverColor = '#2d1d3f', zIndex = 10, speed = 1 }: Props = $props();
 
   let el: HTMLAnchorElement;
   let x = $state(0);
@@ -81,10 +82,12 @@
         return;
       }
 
-      const speed = Math.sqrt(dx * dx + dy * dy);
+      const isMobile = window.innerWidth < mobileBreakpoint;
+      const speedMultiplier = isMobile ? speed * 0.5 : speed;
+      const magnitude = Math.sqrt(dx * dx + dy * dy);
 
-      x += dx;
-      y += dy;
+      x += dx * speedMultiplier;
+      y += dy * speedMultiplier;
 
       let bounced = false;
 
@@ -104,8 +107,8 @@
         dx += (Math.random() - 0.5) * 0.5;
         dy += (Math.random() - 0.5) * 0.5;
         const newMagnitude = Math.sqrt(dx * dx + dy * dy);
-        dx = (dx / newMagnitude) * speed;
-        dy = (dy / newMagnitude) * speed;
+        dx = (dx / newMagnitude) * magnitude;
+        dy = (dy / newMagnitude) * magnitude;
       }
 
       animId = requestAnimationFrame(animate);
