@@ -142,15 +142,16 @@
 <main>
   <Header />
 
-  <section class="intro">
-    <h1>Veran&shy;staltungen</h1>
+    <section class="intro">
     <div class="intro-text">
+       <h1>Veran&shy;staltungen</h1>
       <p class="tagline">Was passiert auf dem Parklet? Alle Termine auf einen Blick.</p>
     </div>
     <div class="intro-image">
-      <img src="/B2.jpg" alt="Veranstaltungen auf dem Parklet" />
+      <img src="/B2.jpg" alt="Mitmachen beim Parklet" />
     </div>
   </section>
+
 
   <section class="content">
     {#if selectedEvent}
