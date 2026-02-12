@@ -8,7 +8,7 @@
   <section class="hero">
     <div class="hero-text">
       <h1>Ein Ort für ALLE</h1>
-      <p class="tagline">Ein Ort für Arbeit und Kultur. Ein Freiraum für Gemeinschaft. Ein Platz zum Experimentieren.</p>
+      <p class="tagline">Gemeinsam gestalten. Nachhaltig beleben. Im Viertel begegnen.</p>
     </div>
     <div class="hero-image">
       <img src="/B6.jpg" />

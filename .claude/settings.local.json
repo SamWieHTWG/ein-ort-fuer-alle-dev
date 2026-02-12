@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del \"c:\\\\repos\\\\parklet\\\\src\\\\hooks.server.ts\")",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:localhost)"
+    ]
+  }
+}

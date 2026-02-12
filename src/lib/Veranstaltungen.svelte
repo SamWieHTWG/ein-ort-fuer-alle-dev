@@ -473,14 +473,14 @@
   }
 
   .day.has-event.selected .event-dot {
-    background: #0e9c26;
+    background: #7954A2;
   }
 
   .event-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #0e9c26;
+    background: #7954A2;
   }
 
   /* Event Detail */
@@ -515,7 +515,7 @@
   .event-meta {
     font-size: 1rem;
     font-weight: 700;
-    color: #0e9c26;
+    color: #7954A2;
     margin: 0 0 1rem 0;
   }
 

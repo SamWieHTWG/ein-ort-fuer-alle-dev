@@ -10,7 +10,9 @@
     <span class="logo-main">Lehen</span>
   </a>
 
-  <Bubble />
+  <Bubble href="/mitmachen" label="Mitmachen" color="#7954A2" hoverColor="#2d1d3f" zIndex={12} />
+  <Bubble href="/unser-parklet" label={"Unser\nParklet"} color="#D74237" hoverColor="#2d1d3f" zIndex={11} />
+  <Bubble href="/veranstaltungen" label="Events" color="#82C340" hoverColor="#2d1d3f" zIndex={10} />
 
   <!-- <nav class="nav-desktop">
     <a href="/unser-parklet">Unser Parklet</a>
