@@ -5,27 +5,30 @@
 </script>
 
 <header>
-  <a class="logo" href="/">
-    <span class="logo-sub">Parklet im</span>
-    <span class="logo-main">Lehen</span>
-  </a>
+  <div class="header-bar">
+    <a class="logo" href="/">
+      <span class="logo-sub">Parklet im</span>
+      <span class="logo-main">Lehen</span>
+    </a>
 
-  <Bubble href="/mitmachen" label="Mitmachen" color="#7954A2" hoverColor="#2d1d3f" zIndex={12} />
-  <Bubble href="/unser-parklet" label={"Unser\nParklet"} color="#D74237" hoverColor="#2d1d3f" zIndex={11} />
-  <Bubble href="/veranstaltungen" label="Events" color="#82C340" hoverColor="#2d1d3f" zIndex={10} />
+    <div class="bubbles-desktop">
+      <Bubble href="/mitmachen" label="Mitmachen" color="#7954A2" hoverColor="#2d1d3f" zIndex={12} />
+      <Bubble href="/unser-parklet" label={"Unser\nParklet"} color="#D74237" hoverColor="#2d1d3f" zIndex={11} />
+      <Bubble href="/veranstaltungen" label="Events" color="#82C340" hoverColor="#2d1d3f" zIndex={10} />
+    </div>
 
-  <!-- <nav class="nav-desktop">
-    <a href="/unser-parklet">Unser Parklet</a>
-    <a href="/mitmachen">Mitmachen</a>
-    <a href="/">Bewerben</a>
-    <a href="/veranstaltungen">Veranstaltungen</a>
-  </nav> -->
+    <button class="hamburger" onclick={() => menuOpen = !menuOpen} aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
-  <button class="hamburger" onclick={() => menuOpen = !menuOpen} aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <div class="bubbles-mobile">
+    <Bubble href="/mitmachen" label="Mitmachen" color="#7954A2" hoverColor="#2d1d3f" zIndex={12} />
+    <Bubble href="/unser-parklet" label={"Unser\nParklet"} color="#D74237" hoverColor="#2d1d3f" zIndex={11} />
+    <Bubble href="/veranstaltungen" label="Events" color="#82C340" hoverColor="#2d1d3f" zIndex={10} />
+  </div>
 </header>
 
 {#if menuOpen}
@@ -39,9 +42,6 @@
 <style>
   header {
     position: relative;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
   }
 
   header::after {
@@ -52,6 +52,38 @@
     bottom: 0;
     height: 4px;
     background: #000;
+  }
+
+  .header-bar {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .bubbles-desktop {
+    display: none;
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    overflow: visible;
+  }
+
+  .bubbles-mobile {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .bubbles-desktop {
+      display: block;
+    }
+
+    .bubbles-mobile {
+      display: none;
+    }
   }
 
   .logo {
