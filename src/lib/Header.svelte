@@ -77,6 +77,10 @@
   }
 
   @media (min-width: 640px) {
+    .header-bar {
+      min-height: calc(105px * 1.5);
+    }
+
     .bubbles-desktop {
       display: block;
     }
