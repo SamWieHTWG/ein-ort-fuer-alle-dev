@@ -136,6 +136,8 @@
     position: relative;
     z-index: 20;
     margin-left: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     background: none;
     border: none;
     cursor: pointer;
@@ -143,6 +145,8 @@
     flex-direction: column;
     gap: 5px;
     padding: 4px;
+    -moz-appearance: none;
+    appearance: none;
   }
 
   .hamburger span {
