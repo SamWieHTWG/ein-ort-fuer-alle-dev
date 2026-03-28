@@ -1,5 +1,6 @@
 <script lang="ts">
   import Bubble from '$lib/Bubble.svelte';
+  import { COLOR_PRIMARY, COLOR_SECONDARY } from '$lib/constants';
 
   let menuOpen = $state(false);
 </script>
@@ -7,14 +8,13 @@
 <header>
   <div class="header-bar">
     <a class="logo" href="/">
-      <span class="logo-sub">Parklet im</span>
-      <span class="logo-main">Lehen</span>
+      <img src="/anlehnen/logo.png" alt="Parklet im Lehen" />
     </a>
 
     <div class="bubbles-desktop">
-      <Bubble href="/mitmachen" label="Mitmachen" color="#7954A2" hoverColor="#2d1d3f" zIndex={12} />
-      <Bubble href="/unser-parklet" label={"Unser\nParklet"} color="#D74237" hoverColor="#2d1d3f" zIndex={11} />
-      <Bubble href="/veranstaltungen" label="Events" color="#82C340" hoverColor="#2d1d3f" zIndex={10} />
+      <Bubble href="/mitmachen" label="Mitmachen" color={COLOR_SECONDARY} hoverColor={COLOR_PRIMARY} zIndex={12} />
+      <Bubble href="/unser-parklet" label={"Unser\nParklet"} color={COLOR_PRIMARY} hoverColor={COLOR_SECONDARY} zIndex={11} />
+      <Bubble href="/kontakt" label="Kontakt" color={COLOR_PRIMARY} hoverColor={COLOR_SECONDARY} zIndex={10} />
     </div>
 
     <button class="hamburger" onclick={() => menuOpen = !menuOpen} aria-label="Menu">
@@ -25,9 +25,9 @@
   </div>
 
   <div class="bubbles-mobile">
-    <Bubble href="/mitmachen" label="Mitmachen" color="#7954A2" hoverColor="#2d1d3f" zIndex={12} />
-    <Bubble href="/unser-parklet" label={"Unser\nParklet"} color="#D74237" hoverColor="#2d1d3f" zIndex={11} />
-    <Bubble href="/veranstaltungen" label="Events" color="#82C340" hoverColor="#2d1d3f" zIndex={10} />
+    <Bubble href="/mitmachen" label="Mitmachen" color={COLOR_SECONDARY} hoverColor={COLOR_PRIMARY} zIndex={12} />
+    <Bubble href="/unser-parklet" label={"Unser\nParklet"} color={COLOR_PRIMARY} hoverColor={COLOR_SECONDARY} zIndex={11} />
+    <Bubble href="/kontakt" label="Kontakt" color={COLOR_PRIMARY} hoverColor={COLOR_SECONDARY} zIndex={10} />
   </div>
 </header>
 
@@ -35,7 +35,7 @@
   <nav class="nav-mobile">
     <a href="/unser-parklet" onclick={() => menuOpen = false}>Unser Parklet</a>
     <a href="/mitmachen" onclick={() => menuOpen = false}>Mitmachen</a>
-    <a href="/veranstaltungen" onclick={() => menuOpen = false}>Veranstaltungen</a>
+    <a href="/kontakt" onclick={() => menuOpen = false}>Kontakt</a>
   </nav>
 {/if}
 
@@ -91,49 +91,25 @@
   }
 
   .logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
+    display: block;
     text-decoration: none;
-    color: #000;
-    text-transform: uppercase;
     user-select: none;
   }
 
-  .logo-sub {
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-
-  .logo-main {
-    font-size: 1.5rem;
-    font-weight: 900;
-  }
-
-  .nav-desktop {
-    display: none;
-    gap: 4rem;
-    margin-left: 8rem;
+  .logo img {
+    height: 168px;
+    width: auto;
+    display: block;
   }
 
   @media (min-width: 640px) {
-    .nav-desktop {
-      display: flex;
+    .logo img {
+      height: 224px;
     }
 
     .hamburger {
       display: none;
     }
-  }
-
-  .nav-desktop a {
-    color: #000;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-desktop a:hover {
-    color: #666;
   }
 
   .hamburger {

@@ -3,7 +3,10 @@
     "allow": [
       "Bash(del \"c:\\\\repos\\\\parklet\\\\src\\\\hooks.server.ts\")",
       "Bash(npm run dev:*)",
-      "WebFetch(domain:localhost)"
+      "WebFetch(domain:localhost)",
+      "Bash(grep -oP '\\(?<=>\\)[A-Za-z][^<]{2,}\\(?=<\\)' \"c:/repos/parklet/static/anlehnen/4.svg\")",
+      "Bash(node -e \":*)",
+      "Bash(python3 -c \"from PIL import Image; print\\(''PIL ok''\\)\")"
     ]
   }
 }

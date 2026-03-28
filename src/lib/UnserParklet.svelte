@@ -8,27 +8,24 @@
   <section class="intro">
     <div class="intro-text">
       <h1>Unser Parklet</h1>
-      <p class="tagline">Ein grüner Ort der Begegnung mitten im Leonhardsviertel.</p>
+      <p class="tagline">Ein offener, nicht-kommerzieller Begegnungsort für die Nachbar*innenschaft im Lehenviertel.</p>
     </div>
     <div class="intro-image">
-      <img src="/B3.jpg" alt="Parklet Katharinenstraße" />
+      <img src="/B3.jpg" alt="Parklet Alexanderstraße" />
     </div>
   </section>
 
   <section class="content">
     <div class="block">
-      <h2>Konzept</h2>
+      <h2>Was ist ein Parklet?</h2>
       <p>
-        Dank der zweimaligen und großzügigen Förderung des Bezirksrat Mitte konnten wir,
-        eine Gruppe junger Menschen aus dem Leonhardsviertel, nun schon im zweiten Jahr
-        das Parklet in der Katharinenstraße gemeinschaftlich aufbauen, verbessern und mit
-        der Nachbar*innenschaft nutzen.
+        Parklets sind temporäre Erweiterungen des öffentlichen Raums, die auf der Fläche eines oder
+        zweier Parkplätze entstehen. Sie verwandeln einen kleinen Teil der Straße in einen Ort für
+        Aufenthalt, Begegnung und gemeinschaftliche Nutzung.
       </p>
       <p>
-        Das Parklet und die Möglichkeit, sich zwischen Autos, Straßen und kommerziellen
-        Angeboten zu entspannen und zu treffen, wurde im letzten Jahr sehr gut
-        angenommen. Mit Liegefläche, Schattenplätzen und Begrünung aus kleinem Gehölz,
-        Stauden und Blumen war das Parklet wie eine kleine grüne Oase mitten in der Stadt.
+        Parklets können Sitzgelegenheiten, Pflanzen, kleine Tische oder Liegeflächen enthalten und
+        stehen allen Menschen frei zur Verfügung. Eine gewerbliche Nutzung findet nicht statt.
       </p>
     </div>
 
@@ -38,22 +35,20 @@
     </div>
 
     <div class="block">
+      <h2>Das Parklet</h2>
       <p>
-        Wir würden uns sehr freuen, wenn das Parklet dieses Jahr wieder aufgebaut werden
-        kann und so ein Mehrwert für unser Viertel geschaffen werden kann. Dafür hoffen wir
-        auf Ihre Befürwortung unseres künftigen Antrags bei der Straßenverkehrsbehörde.
+        Unser Parklet hat in der Katharinenstraße bereits einige Jahre gelebt — als Ort für
+        Begegnung, gemeinsames Essen, kleine Workshops und spontanen Austausch zwischen
+        Bewohner*innen und Passant*innen. Jetzt bekommt es einen neuen Platz in der Alexanderstraße.
       </p>
-      <p>
-        Der Schwerpunkt für dieses Jahr besteht darin, die verschiedenen Gruppen, die
-        bereits das Parklet nutzen, besser in Austausch treten zu lassen. Dafür wollen wir
-        ganz niederschwellig zu Nachbar*innenschaftstreffen auf die Fläche einladen und uns
-        im öffentlichen Raum begegnen.
-      </p>
-      <p>
-        Mit den Förderungen aus dem letzten Jahr konnten weitere Sitzmöbel und
-        Pflanzkästen gebaut werden sowie eine vielfältige und klimaresistente Begrünung
-        des Parklets angeschafft werden.
-      </p>
+      <p class="subheading">Was euch erwartet:</p>
+      <ul>
+        <li>Liege- und Sitzfläche zum Entspannen</li>
+        <li>Großer Tisch für gemeinsame Essen und Veranstaltungen</li>
+        <li>Modulare Sitzbänke</li>
+        <li>Begrünung durch integrierte Pflanzkübel</li>
+        <li>Sonnenschutz durch ein Tarp</li>
+      </ul>
     </div>
 
     <div class="image-full">
@@ -61,16 +56,19 @@
     </div>
 
     <div class="block">
-      <h2>Wer wir sind</h2>
+      <h2>Warum ein Parklet im Lehenviertel?</h2>
       <p>
-        Wir sind eine Gruppe aus Bewohner*innen des Leonhardsviertels, die sich bewusst für
-        die nachhaltige und gemeinschaftsorientierte Gestaltung des öffentlichen Raums
-        einsetzt. Im Sommer 2020 durften wir Dank der Wanderbaumallee eine Idee davon
-        bekommen, was es heißt gemeinschaftlich und in geteilter Verantwortung die
-        Katharinenstraße zu beleben und in Austausch mit unserer Nachbar*innenschaft zu
-        kommen. Dann lernten wir das Konzept der Parklets kennen und sind nach wie vor
-        überzeugt davon.
+        Das Lehenviertel ist ein lebendiges, dicht besiedeltes Stadtviertel — mit vielen Menschen,
+        aber nur wenigen Orten im Freien, an denen man einfach verweilen kann. Ein eigener Balkon
+        oder Garten ist hier nicht selbstverständlich.
       </p>
+      <p>Das Parklet soll diese Lücke schließen: ein Ort für alle, kostenlos, ohne Konsumzwang.</p>
+      <ul>
+        <li>Frei zugänglich und nicht-kommerziell</li>
+        <li>Treffpunkt für Nachbar*innen</li>
+        <li>Raum für gemeinsame Aktivitäten und spontane Begegnungen</li>
+        <li>Mehr Grün und Aufenthaltsqualität im Straßenraum</li>
+      </ul>
     </div>
 
     <div class="image-row">
@@ -79,65 +77,16 @@
     </div>
 
     <div class="block">
-      <h2>Warum ein Parklet im Leonhardsviertel?</h2>
+      <h2>Der Standort</h2>
       <p>
-        Zwischen den engen Gassen, Autos, Gastro-Angeboten und betonierten Flächen gibt
-        es nur wenige Orte, die einfach Aufenthaltsqualität und Schatten bieten. Im Viertel
-        wohnt eine sehr diverse Stadtgesellschaft, doch es herrscht wenig Austausch auf
-        den Straßen und Plätzen. Natürlich können wir mit einem einzelnen Parklet keine
-        klimagerechte Stadt schaffen, doch ist es vielleicht ein kleines Sandkorn in diesem
-        Prozess und wir würden uns freuen, einen Teil dazu beizutragen.
+        Das Parklet entsteht in der Alexanderstraße im Lehenviertel — mitten im Viertel, gut
+        erreichbar für alle. Ein Ort, an dem man einfach vorbeikommen, bleiben und ins Gespräch
+        kommen kann.
       </p>
     </div>
 
     <div class="image-full">
       <img src="/B7.jpg" alt="Parklet im Viertel" />
-    </div>
-
-    <div class="block">
-      <h2>Aufbau</h2>
-      <p>
-        Bis auf kleine Verbesserungen wie das Anbringen von noch mehr Hinweisschildern,
-        das Bauen kleiner Hocker und die Auffrischung der Begrünung soll es in diesem Jahr
-        keine weiteren baulichen Maßnahmen geben. Wir durften in den letzten zwei Jahren
-        erfahren, dass es viel Kapazitäten braucht, um ein Parklet richtig zu pflegen und dieser
-        Aufgabe möchten wir dieses Jahr noch mehr Aufmerksamkeit schenken.
-      </p>
-      <p class="subheading">Der Aufbau soll wie folgt bleiben:</p>
-      <ul>
-        <li>Auf der linken Seite soll es einen Sitzbereich mit großem Tisch zum gemeinsamen Essen, Gestalten und Treffen geben.</li>
-        <li>Tarps und Begrünung schützen vor Sonne, Lärm und erhöhen die Aufenthaltsqualität.</li>
-        <li>Der mittlere Teil des Parklets wird dominiert durch ein niedriges Podest, das als Liegefläche dient.</li>
-        <li>Auf der rechten Seite lädt das Tauschregal mit Büchern zum ersten Schritt aufs Parklet und zur Interaktion ein.</li>
-        <li>Das Lastenrad "Rosa" findet hier seine Verleihstation und kann über Lastenrad Stuttgart auf Spendenbasis gebucht werden.</li>
-        <li>Die Kreidetafel lädt zur Kommunikation ein und kann gleichzeitig als Schwarzes Brett dienen.</li>
-        <li>Hinweisschilder vermitteln den Zweck von Parklets und weisen auf einige Regeln zur Nutzung hin.</li>
-        <li>Die digitale Vermittlung läuft über den gut genutzten Instagram Account des Parklets weiter.</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h2>Sicherheit</h2>
-      <p>
-        Die Gestaltung des Parklets entspricht gewissen Sicherheitsansprüchen. Verstellbare
-        Balken garantieren eine gerade Fläche, die den geregelten Abfluss des Regenwassers
-        gewährleistet. Durch die Absicherung mit Bänken, Podesten, fest integrierten
-        Blumenkübeln und Querstreben an den drei Außenseiten zur Straße hin ist ein Eintreten
-        nur vom Gehweg möglich. Reflektoren machen das Parklet auch bei schwierigen
-        Witterungsverhältnissen gut sichtbar. Versichert ist das Parklet durch eine Mitgliedschaft
-        bei Tilia e. V..
-      </p>
-    </div>
-
-    <div class="block">
-      <h2>Was wollen wir erreichen?</h2>
-      <p>
-        Mit den ersten Parklets in Stuttgart sind neue Möglichkeiten zur Nutzung des
-        öffentlichen Raums sichtbar geworden. Wir wollen mit dem Parklet Katharinenstraße
-        3.0 zur Aufwertung des Stadtbildes beitragen, einen sicheren Begegnungsort
-        schaffen und einen Ort entstehen lassen, der zur Entspannung und zum Austausch
-        einlädt.
-      </p>
     </div>
   </section>
 </main>
