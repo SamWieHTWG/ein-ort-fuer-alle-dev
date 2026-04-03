@@ -120,6 +120,18 @@ function buildArcTable(pts: { x: number; y: number }[], ten: number, samples = 5
   $: avgY = endPos.reduce((sum, p) => sum + p.y, 0) / N;
   $: startPos = endPos.map((p) => ({ x: p.x, y: avgY, rot: 0 }));
 
+  // ── Dynamic viewBox ────────────────────────────────────────
+  const FONT_PAD = 40; // ~half of font-size 62 + margin
+  $: viewBox = (() => {
+    const xs = endPos.map(p => p.x);
+    const ys = [...endPos.map(p => p.y), avgY];
+    const x0 = Math.min(...xs) - FONT_PAD;
+    const y0 = Math.min(...ys) - FONT_PAD;
+    const x1 = Math.max(...xs) + FONT_PAD;
+    const y1 = Math.max(...ys) + FONT_PAD;
+    return `${x0.toFixed(1)} ${y0.toFixed(1)} ${(x1 - x0).toFixed(1)} ${(y1 - y0).toFixed(1)}`;
+  })();
+
   // ── Debug spline path for SVG ──────────────────────────────
   $: splinePath = (() => {
     const steps = 80;
@@ -238,7 +250,7 @@ gsap.to(letterEls, {
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <svg
     bind:this={svgEl}
-    viewBox="0 20 500 240"
+    viewBox={viewBox}
     xmlns="http://www.w3.org/2000/svg"
     aria-label="ANLEHNEN"
     on:mousemove={onMouseMove}
