@@ -15,8 +15,10 @@
 let splinePoints = [
     { x: 0.2908, y: 0.4187 },
     { x: 0.4800, y: 0.4129 },
-    { x: 0.7069, y: 0.0429 },
-    { x: 0.8602, y: 0.1758 }
+    { x: 0.6410, y: 0.1970 },
+    { x: 0.7805, y: 0.1161 },
+    { x: 0.8687, y: 0.2260 },
+    { x: 0.9346, y: 0.4399 }
   ];
   let tension = 0.00;
 
@@ -156,6 +158,21 @@ function buildArcTable(pts: { x: number; y: number }[], ten: number, samples = 5
     );
   }
 
+  function addPoint() {
+  const last = splinePoints.at(-1);
+  const prev = splinePoints.at(-2);
+  splinePoints = [...splinePoints, {
+    x: Math.min(1, last.x + (last.x - prev.x) * 0.5),
+    y: last.y
+  }];
+}
+
+function removePoint() {
+  if (splinePoints.length > 2) {
+    splinePoints = splinePoints.slice(0, -1);
+  }
+}
+
   function onMouseUp() { draggingIndex = -1; }
 
   // ── Copied state ───────────────────────────────────────────
@@ -273,7 +290,7 @@ gsap.to(letterEls, {
     y={DEBUG ? endPos[i].y : avgY}
     text-anchor="middle"
     dominant-baseline="central"
-    font-family="Impact, 'Arial Black', sans-serif"
+    font-family="'Montserrat', sans-serif"
     font-size="62"
     font-weight="900"
     fill={i === HIGHLIGHT_INDEX ? COLOR_ORANGE : COLOR_RED}
@@ -318,9 +335,13 @@ gsap.to(letterEls, {
   <button class="debug-toggle" on:click={() => DEBUG = !DEBUG}>
     {DEBUG ? '✕ Exit debug' : '⚙ Debug'}
   </button>
+  <button on:click={addPoint}>+ Add point</button>
+<button on:click={removePoint} disabled={splinePoints.length <= 2}>− Remove point</button>
 </div>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@650&display=swap');
+
   .logo-animation {
     margin: 2rem -2rem;
     padding: 1.5rem 0;
