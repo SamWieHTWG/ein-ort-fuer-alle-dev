@@ -1,3 +1,7 @@
+<svelte:head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+</svelte:head>
+
 <script lang="ts">
   import { onMount } from 'svelte';
 
@@ -79,6 +83,7 @@
 
   // ── Computed positions ─────────────────────────────────────
   const N = LETTERS.length;
+  const FONT_PAD = 40; // half glyph height approx
 
   $: endPos = (() => {
     const table = buildArcTable(splinePoints, tension);
@@ -92,15 +97,30 @@
 
   $: avgY = endPos.reduce((sum, p) => sum + p.y, 0) / N;
 
-  // Percentage-based for CSS
+  // Tight bounding box around all positions (start + end)
+  $: bbox = (() => {
+    const allX = endPos.map(p => p.x);
+    const allY = [...endPos.map(p => p.y), avgY];
+    return {
+      x0: Math.max(0, Math.min(...allX) - FONT_PAD),
+      y0: Math.max(0, Math.min(...allY) - FONT_PAD),
+      x1: Math.min(VW, Math.max(...allX) + FONT_PAD),
+      y1: Math.min(TOTAL_H, Math.max(...allY) + FONT_PAD)
+    };
+  })();
+
+  $: bboxW = bbox.x1 - bbox.x0;
+  $: bboxH = bbox.y1 - bbox.y0;
+
+  // Remap positions to tight bbox percentages
   $: startPcts = endPos.map(p => ({
-    x: (p.x / VW * 100),
-    y: (avgY / TOTAL_H * 100)
+    x: ((p.x - bbox.x0) / bboxW * 100),
+    y: ((avgY - bbox.y0) / bboxH * 100)
   }));
 
   $: endPcts = endPos.map(p => ({
-    x: (p.x / VW * 100),
-    y: (p.y / TOTAL_H * 100),
+    x: ((p.x - bbox.x0) / bboxW * 100),
+    y: ((p.y - bbox.y0) / bboxH * 100),
     rot: p.rot
   }));
 
@@ -133,14 +153,18 @@
     canvasEl.height = rect.height;
     const ctx = canvasEl.getContext('2d')!;
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
-    const sx = rect.width / VW, sy = rect.height / TOTAL_H;
+    const sx = rect.width / bboxW, sy = rect.height / bboxH;
+
+    function toCanvas(absX: number, absY: number) {
+      return { px: (absX - bbox.x0) * sx, py: (absY - bbox.y0) * sy };
+    }
 
     // spline curve
     ctx.beginPath();
     ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
     for (let i = 0; i <= 80; i++) {
       const s = sampleSpline(splinePoints, i / 80, tension);
-      const px = s.x * VW * sx, py = (VY + s.y * VH) * sy;
+      const { px, py } = toCanvas(s.x * VW, VY + s.y * VH);
       i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
     }
     ctx.stroke(); ctx.setLineDash([]);
@@ -148,14 +172,14 @@
     // control polygon
     ctx.beginPath(); ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 0.5; ctx.setLineDash([2, 2]);
     splinePoints.forEach((p, i) => {
-      const px = p.x * VW * sx, py = (VY + p.y * VH) * sy;
+      const { px, py } = toCanvas(p.x * VW, VY + p.y * VH);
       i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
     });
     ctx.stroke(); ctx.setLineDash([]);
 
     // handles
     splinePoints.forEach((p, i) => {
-      const px = p.x * VW * sx, py = (VY + p.y * VH) * sy;
+      const { px, py } = toCanvas(p.x * VW, VY + p.y * VH);
       ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2);
       ctx.fillStyle = '#fff'; ctx.fill();
       ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 1.5; ctx.stroke();
@@ -177,9 +201,9 @@
     const rect = wrapEl.getBoundingClientRect();
     const src = (e as TouchEvent).touches ? (e as TouchEvent).touches[0] : e as MouseEvent;
     const mx = src.clientX - rect.left, my = src.clientY - rect.top;
-    const sx = rect.width / VW, sy = rect.height / TOTAL_H;
+    const sx = rect.width / bboxW, sy = rect.height / bboxH;
     splinePoints.forEach((p, i) => {
-      const px = p.x * VW * sx, py = (VY + p.y * VH) * sy;
+      const px = (p.x * VW - bbox.x0) * sx, py = (VY + p.y * VH - bbox.y0) * sy;
       if (Math.hypot(mx - px, my - py) < 12) draggingIndex = i;
     });
   }
@@ -188,11 +212,14 @@
     if (draggingIndex < 0 || !DEBUG || !wrapEl) return;
     const rect = wrapEl.getBoundingClientRect();
     const src = (e as TouchEvent).touches ? (e as TouchEvent).touches[0] : e as MouseEvent;
-    const nx = (src.clientX - rect.left) / rect.width;
-    const ny = (src.clientY - rect.top) / rect.height;
+    const relX = (src.clientX - rect.left) / rect.width;
+    const relY = (src.clientY - rect.top) / rect.height;
+    // map back from bbox-relative to spline-normalized
+    const absX = bbox.x0 + relX * bboxW;
+    const absY = bbox.y0 + relY * bboxH;
     splinePoints = splinePoints.map((p, i) =>
       i === draggingIndex
-        ? { x: Math.max(0, Math.min(1, nx)), y: Math.max(0, Math.min(1, (ny * TOTAL_H - VY) / VH)) }
+        ? { x: Math.max(0, Math.min(1, absX / VW)), y: Math.max(0, Math.min(1, (absY - VY) / VH)) }
         : p
     );
   }
@@ -251,7 +278,7 @@
     </div>
   {/if}
 
-  <div class="logo-wrap" bind:this={wrapEl}>
+  <div class="logo-wrap" bind:this={wrapEl} style="aspect-ratio: {bboxW.toFixed(1)} / {bboxH.toFixed(1)}">
     {#if DEBUG}
       <canvas class="debug-canvas" bind:this={canvasEl}></canvas>
     {/if}
@@ -279,18 +306,16 @@
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
   .logo-animation {
-    margin: 2rem -2rem;
-    padding: 1.5rem 0;
+    margin: 0;
+    padding: 0;
     position: relative;
   }
 
   .logo-wrap {
     position: relative;
     width: 100%;
-    aspect-ratio: 500 / 235;
   }
 
   .letter {
