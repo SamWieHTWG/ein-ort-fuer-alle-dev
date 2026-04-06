@@ -4,68 +4,59 @@
   let menuOpen = $state(false);
 </script>
 
-<header>
-  <div class="header-bar">
-    <div class="logo-area">
-      <a href="/" class="logo-link" aria-label="Zur Startseite"></a>
-      <LogoAnimation />
-    </div>
-
-    <button
-      class="hamburger"
-      class:open={menuOpen}
-      onclick={() => menuOpen = !menuOpen}
-      aria-label="Menu"
-      aria-expanded={menuOpen}
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+<div class="logo-sticky">
+  <div class="logo-area">
+    <a href="/" class="logo-link" aria-label="Zur Startseite"></a>
+    <LogoAnimation />
   </div>
+</div>
+
+<div class="hamburger-fixed">
+  <button
+    class="hamburger"
+    class:open={menuOpen}
+    onclick={() => menuOpen = !menuOpen}
+    aria-label="Menu"
+    aria-expanded={menuOpen}
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
   <nav class="nav-mobile" class:open={menuOpen} aria-hidden={!menuOpen}>
     <a href="/unser-parklet" onclick={() => menuOpen = false}>Unser Parklet</a>
     <a href="/mitmachen" onclick={() => menuOpen = false}>Mitmachen</a>
     <a href="/kontakt" onclick={() => menuOpen = false}>Kontakt</a>
   </nav>
-</header>
+</div>
 
 <style>
-  header {
-    position: relative;
-  }
-
-  .header-bar {
-    position: relative;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    overflow: visible;
-  }
-
-  .header-bar::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 4px;
-    background: #000;
+  .logo-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 
   .logo-area {
     width: 70%;
-    flex-shrink: 0;
+    padding: 1rem;
     text-decoration: none;
     display: block;
   }
 
-  /* Hamburger → X animation */
+  /* Fixed hamburger + nav in top-right corner */
+  .hamburger-fixed {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
   .hamburger {
-    position: relative;
-    z-index: 20;
-    margin-left: auto;
     background: none;
     border: none;
     cursor: pointer;
@@ -98,18 +89,19 @@
     transform: translateY(-9px) rotate(-45deg);
   }
 
-  /* Nav slide animation */
+  /* Nav dropdown */
   .nav-mobile {
+    background-color: #81b673;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
-    padding: 0 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease, padding 0.3s ease;
+    border-radius: 4px;
+    margin-top: 0.5rem;
   }
 
   .nav-mobile.open {

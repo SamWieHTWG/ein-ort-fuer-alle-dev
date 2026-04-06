@@ -5,9 +5,9 @@
   import { COLOR_PRIMARY, COLOR_SECONDARY } from '$lib/constants';
 </script>
 
-<main>
-  <Header />
+<Header />
 
+<main>
   <!-- <LogoAnimation /> -->
 
   <section class="intro">

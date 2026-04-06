@@ -139,9 +139,9 @@
   }
 </script>
 
-<main>
-  <Header />
+<Header />
 
+<main>
     <section class="intro">
     <div class="intro-text">
        <h1>Veran&shy;staltungen</h1>

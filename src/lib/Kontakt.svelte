@@ -2,9 +2,9 @@
   import Header from '$lib/Header.svelte';
 </script>
 
-<main>
-  <Header />
+<Header />
 
+<main>
   <section class="intro">
     <div class="intro-text">
       <h1>Kontakt</h1>

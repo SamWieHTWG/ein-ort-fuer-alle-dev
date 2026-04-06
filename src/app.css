@@ -19,10 +19,13 @@ html, body {
 
 /* Layout */
 main {
+  position: relative;
+  z-index: 10;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  overflow: hidden;
+  overflow: clip;
+  background-color: var(--color-background, #81b673);
 }
 
 @media (min-width: 1024px) {

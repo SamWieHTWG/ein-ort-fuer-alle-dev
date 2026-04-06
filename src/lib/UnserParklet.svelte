@@ -2,9 +2,9 @@
   import Header from '$lib/Header.svelte';
 </script>
 
-<main>
-  <Header />
+<Header />
 
+<main>
   <section class="intro intro--full">
     <div class="intro-text block--secondary">
       <h1>Unser Parklet</h1>
