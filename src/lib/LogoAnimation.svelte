@@ -307,8 +307,11 @@
   }
 </script>
 
-<section
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<div
   class="logo-animation"
+  role="img"
+  aria-label="ANLEHNEN Logo Animation"
   bind:this={sectionEl}
   on:mousedown={onHandleDown}
   on:mousemove={onMove}
@@ -361,7 +364,7 @@
       "
     />
   </div>
-</section>
+</div>
 
 <div class="debug-toggle-wrap">
   <button class="debug-toggle" on:click={() => (DEBUG = !DEBUG)}>
@@ -375,6 +378,7 @@
     margin: 0;
     padding: 0;
     position: relative;
+    container-type: inline-size;
   }
 
   .logo-wrap {
@@ -385,7 +389,7 @@
   .letter {
     position: absolute;
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(32px, 12.4vw, 74px);
+    font-size: clamp(18px, 13cqw, 74px);
     font-weight: 900;
     line-height: 1;
     color: var(--c);

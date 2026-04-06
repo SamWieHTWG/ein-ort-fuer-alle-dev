@@ -100,6 +100,13 @@
     gap: 2.5rem;
     align-items: start;
     margin-bottom: 3rem;
+    background:
+      linear-gradient(to right,
+        transparent calc(50% - 0.5px),
+        #000 calc(50% - 0.5px),
+        #000 calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      );
   }
 
   .pair.reverse > :first-child { order: 2; }
@@ -123,6 +130,7 @@
   @media (max-width: 700px) {
     .pair {
       grid-template-columns: 1fr;
+      background: none;
     }
     .pair.reverse > :first-child { order: 0; }
     .pair.reverse > :last-child  { order: 0; }

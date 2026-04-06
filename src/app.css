@@ -46,8 +46,9 @@ main {
 
 @media (min-width: 1024px) {
   .intro {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr 2fr;
     padding: 2.5rem 1rem;
+    align-items: center;
   }
 }
 
@@ -92,6 +93,11 @@ h1 {
     font-size: 6rem;
     line-height: 7rem;
   }
+}
+
+.intro-image {
+  width: 100%;
+  display: block;
 }
 
 .tagline {

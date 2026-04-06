@@ -11,22 +11,25 @@
       <LogoAnimation />
     </div>
 
-    <button class="hamburger" onclick={() => menuOpen = !menuOpen} aria-label="Menu">
+    <button
+      class="hamburger"
+      class:open={menuOpen}
+      onclick={() => menuOpen = !menuOpen}
+      aria-label="Menu"
+      aria-expanded={menuOpen}
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
   </div>
 
-</header>
-
-{#if menuOpen}
-  <nav class="nav-mobile">
+  <nav class="nav-mobile" class:open={menuOpen} aria-hidden={!menuOpen}>
     <a href="/unser-parklet" onclick={() => menuOpen = false}>Unser Parklet</a>
     <a href="/mitmachen" onclick={() => menuOpen = false}>Mitmachen</a>
     <a href="/kontakt" onclick={() => menuOpen = false}>Kontakt</a>
   </nav>
-{/if}
+</header>
 
 <style>
   header {
@@ -58,6 +61,7 @@
     display: block;
   }
 
+  /* Hamburger → X animation */
   .hamburger {
     position: relative;
     z-index: 20;
@@ -69,7 +73,6 @@
     flex-direction: column;
     gap: 5px;
     padding: 4px;
-    -moz-appearance: none;
     appearance: none;
   }
 
@@ -78,16 +81,40 @@
     width: 2rem;
     height: 4px;
     background: #000;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
   }
 
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Nav slide animation */
   .nav-mobile {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
-    padding: 1rem;
+    padding: 0 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .nav-mobile.open {
+    max-height: 200px;
+    padding: 1rem;
   }
 
   .nav-mobile a {
