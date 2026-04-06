@@ -6,7 +6,7 @@
   <Header />
 
   <section class="intro intro--full">
-    <div class="intro-text">
+    <div class="intro-text block--secondary">
       <h1>Unser Parklet</h1>
       <p class="tagline">Ein offener, nicht-kommerzieller Begegnungsort für die Nachbar*innenschaft im Lehenviertel.</p>
     </div>
@@ -27,7 +27,7 @@
           Tischen oder Liegeflächen. Eine gewerbliche Nutzung findet nicht statt.
         </p>
       </div>
-      <div class="pair-images">
+      <div class="pair-img">
         <img src="/B1.jpg" alt="Parklet Impression" />
       </div>
     </div>
@@ -49,7 +49,9 @@
           <li>Sonnenschutz durch ein Tarp</li>
         </ul>
       </div>
-      <img src="/B2.jpg" alt="Parklet Begrünung" />
+      <div class="pair-img">
+        <img src="/B2.jpg" alt="Parklet Begrünung" />
+      </div>
     </div>
 
     <div class="pair">
@@ -68,7 +70,7 @@
           <li>Mehr Grün und Aufenthaltsqualität im Straßenraum</li>
         </ul>
       </div>
-      <div class="pair-images">
+      <div class="pair-img">
         <img src="/B6.jpg" alt="Parklet Nachbarschaft" />
       </div>
     </div>
@@ -82,7 +84,9 @@
           kommen kann.
         </p>
       </div>
-      <img src="/B7.jpg" alt="Parklet im Viertel" />
+      <div class="pair-img">
+        <img src="/B7.jpg" alt="Parklet im Viertel" />
+      </div>
     </div>
 
   </section>
@@ -104,27 +108,23 @@
   .pair.reverse > :first-child { order: 2; }
   .pair.reverse > :last-child  { order: 1; }
 
-  .pair > img {
+  .pair .block {
+    margin-bottom: 0;
+  }
+
+  .pair-img {
+    position: relative;
+    align-self: stretch;
+    min-height: 180px;
+  }
+
+  .pair-img img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
-    display: block;
-  }
-
-  .pair-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    align-items: stretch;
-  }
-
-  .pair-images img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
   }
 
   @media (max-width: 700px) {
@@ -133,9 +133,8 @@
     }
     .pair.reverse > :first-child { order: 0; }
     .pair.reverse > :last-child  { order: 0; }
-    .pair > img,
-    .pair-images img {
-      height: auto;
+    .pair-img {
+      min-height: 220px;
     }
   }
 </style>

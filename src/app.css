@@ -134,7 +134,9 @@ h1 {
   padding: 1.5rem;
 }
 
+.block--primary h1,
 .block--primary h2,
+.block--secondary h1,
 .block--secondary h2 {
   color: #fff;
 }
