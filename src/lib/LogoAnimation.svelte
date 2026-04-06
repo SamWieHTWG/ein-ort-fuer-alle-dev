@@ -22,6 +22,10 @@
   ];
   let tension = 0.00;
 
+  // Custom start and end positions for the embedded image
+  let imgStartPoint = { x: 0.50, y: 0.5 };
+  let imgEndPoint = { x: 0.68346, y: 0.5};
+
   const VW = 500;
   const VH = 145;
   const VY = 90;
@@ -97,10 +101,10 @@
 
   $: avgY = endPos.reduce((sum, p) => sum + p.y, 0) / N;
 
-  // Tight bounding box around all positions (start + end)
+  // Tight bounding box around all positions (start + end + image)
   $: bbox = (() => {
-    const allX = endPos.map(p => p.x);
-    const allY = [...endPos.map(p => p.y), avgY];
+    const allX = [...endPos.map(p => p.x), imgStartPoint.x * VW, imgEndPoint.x * VW];
+    const allY = [...endPos.map(p => p.y), avgY, VY + imgStartPoint.y * VH, VY + imgEndPoint.y * VH];
     return {
       x0: Math.max(0, Math.min(...allX) - FONT_PAD),
       y0: Math.max(0, Math.min(...allY) - FONT_PAD),
@@ -123,6 +127,16 @@
     y: ((p.y - bbox.y0) / bboxH * 100),
     rot: p.rot
   }));
+
+  $: imgStartPct = {
+    x: ((imgStartPoint.x * VW - bbox.x0) / bboxW * 100),
+    y: ((VY + imgStartPoint.y * VH - bbox.y0) / bboxH * 100)
+  };
+
+  $: imgEndPct = {
+    x: ((imgEndPoint.x * VW - bbox.x0) / bboxW * 100),
+    y: ((VY + imgEndPoint.y * VH - bbox.y0) / bboxH * 100)
+  };
 
   // ── Animation trigger ──────────────────────────────────────
   let animated = false;
@@ -177,7 +191,7 @@
     });
     ctx.stroke(); ctx.setLineDash([]);
 
-    // handles
+    // spline handles
     splinePoints.forEach((p, i) => {
       const { px, py } = toCanvas(p.x * VW, VY + p.y * VH);
       ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2);
@@ -186,15 +200,31 @@
       ctx.fillStyle = '#3b82f6'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
       ctx.fillText('P' + (i + 1), px, py - 8);
     });
+
+    // img start handle
+    const { px: ispx, py: ispy } = toCanvas(imgStartPoint.x * VW, VY + imgStartPoint.y * VH);
+    ctx.beginPath(); ctx.arc(ispx, ispy, 6, 0, Math.PI * 2);
+    ctx.fillStyle = '#ffed4a'; ctx.fill();
+    ctx.strokeStyle = '#cc7a00'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#cc7a00'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('Img Start', ispx, ispy - 10);
+
+    // img end handle
+    const { px: iepx, py: iepy } = toCanvas(imgEndPoint.x * VW, VY + imgEndPoint.y * VH);
+    ctx.beginPath(); ctx.arc(iepx, iepy, 6, 0, Math.PI * 2);
+    ctx.fillStyle = '#ffed4a'; ctx.fill();
+    ctx.strokeStyle = '#cc7a00'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#cc7a00'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('Img End', iepx, iepy - 10);
   }
 
-  $: if (DEBUG && splinePoints && tension !== undefined) {
+  $: if (DEBUG && splinePoints && imgStartPoint && imgEndPoint && tension !== undefined) {
     // tick reactivity then draw
     requestAnimationFrame(drawDebug);
   }
 
   // ── Debug: drag ────────────────────────────────────────────
-  let draggingIndex = -1;
+  let draggingTarget: number | 'imgStart' | 'imgEnd' | null = null;
 
   function onHandleDown(e: MouseEvent | TouchEvent) {
     if (!DEBUG || !wrapEl) return;
@@ -202,29 +232,50 @@
     const src = (e as TouchEvent).touches ? (e as TouchEvent).touches[0] : e as MouseEvent;
     const mx = src.clientX - rect.left, my = src.clientY - rect.top;
     const sx = rect.width / bboxW, sy = rect.height / bboxH;
+    
+    draggingTarget = null;
+
+    // Spline hit test
     splinePoints.forEach((p, i) => {
       const px = (p.x * VW - bbox.x0) * sx, py = (VY + p.y * VH - bbox.y0) * sy;
-      if (Math.hypot(mx - px, my - py) < 12) draggingIndex = i;
+      if (Math.hypot(mx - px, my - py) < 12) draggingTarget = i;
     });
+
+    // Img start hit test
+    const ispx = (imgStartPoint.x * VW - bbox.x0) * sx, ispy = (VY + imgStartPoint.y * VH - bbox.y0) * sy;
+    if (Math.hypot(mx - ispx, my - ispy) < 12) draggingTarget = 'imgStart';
+
+    // Img end hit test
+    const iepx = (imgEndPoint.x * VW - bbox.x0) * sx, iepy = (VY + imgEndPoint.y * VH - bbox.y0) * sy;
+    if (Math.hypot(mx - iepx, my - iepy) < 12) draggingTarget = 'imgEnd';
   }
 
   function onMove(e: MouseEvent | TouchEvent) {
-    if (draggingIndex < 0 || !DEBUG || !wrapEl) return;
+    if (draggingTarget === null || !DEBUG || !wrapEl) return;
     const rect = wrapEl.getBoundingClientRect();
     const src = (e as TouchEvent).touches ? (e as TouchEvent).touches[0] : e as MouseEvent;
     const relX = (src.clientX - rect.left) / rect.width;
     const relY = (src.clientY - rect.top) / rect.height;
+    
     // map back from bbox-relative to spline-normalized
     const absX = bbox.x0 + relX * bboxW;
     const absY = bbox.y0 + relY * bboxH;
-    splinePoints = splinePoints.map((p, i) =>
-      i === draggingIndex
-        ? { x: Math.max(0, Math.min(1, absX / VW)), y: Math.max(0, Math.min(1, (absY - VY) / VH)) }
-        : p
-    );
+    
+    const newX = Math.max(0, Math.min(1, absX / VW));
+    const newY = Math.max(0, Math.min(1, (absY - VY) / VH));
+
+    if (draggingTarget === 'imgStart') {
+      imgStartPoint = { x: newX, y: newY };
+    } else if (draggingTarget === 'imgEnd') {
+      imgEndPoint = { x: newX, y: newY };
+    } else if (typeof draggingTarget === 'number') {
+      splinePoints = splinePoints.map((p, i) =>
+        i === draggingTarget ? { x: newX, y: newY } : p
+      );
+    }
   }
 
-  function onUp() { draggingIndex = -1; }
+  function onUp() { draggingTarget = null; }
 
   // ── Debug helpers ──────────────────────────────────────────
   let copied = false;
@@ -232,7 +283,9 @@
   function copyParams() {
     const txt = `let splinePoints = [\n`
       + splinePoints.map(p => `    { x: ${p.x.toFixed(4)}, y: ${p.y.toFixed(4)} }`).join(',\n')
-      + `\n  ];\n  let tension = ${tension.toFixed(2)};`;
+      + `\n  ];\n  let tension = ${tension.toFixed(2)};\n`
+      + `  let imgStartPoint = { x: ${imgStartPoint.x.toFixed(4)}, y: ${imgStartPoint.y.toFixed(4)} };\n`
+      + `  let imgEndPoint = { x: ${imgEndPoint.x.toFixed(4)}, y: ${imgEndPoint.y.toFixed(4)} };`;
     navigator.clipboard.writeText(txt);
     copied = true;
     setTimeout(() => (copied = false), 1500);
@@ -254,7 +307,6 @@
   }
 </script>
 
-<!-- svelte-ignore a11y-no-static-element-interactions -->
 <section
   class="logo-animation"
   bind:this={sectionEl}
@@ -296,6 +348,18 @@
         "
       >{letter}</span>
     {/each}
+
+    <img
+      class="embedded-img"
+      class:animate={animated || DEBUG}
+      src="/anlehnen/4_embedded_0_black.png"
+      alt=""
+      style="
+        left: {(animated || DEBUG) ? imgEndPct.x : imgStartPct.x}%;
+        top: {(animated || DEBUG) ? imgEndPct.y : imgStartPct.y}%;
+        --d: {HIGHLIGHT_INDEX * 50}ms;
+      "
+    />
   </div>
 </section>
 
@@ -334,10 +398,23 @@
                 top 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95),
                 transform 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
     transition-delay: var(--d);
+    z-index: 1;
   }
 
   .letter.animate {
     transform: translate(-50%, -50%) rotate(var(--er));
+  }
+
+  .embedded-img {
+    position: absolute;
+    height: 65%;
+    transform: translate(0, -60%);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    transition: left 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95),
+                top  1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition-delay: var(--d);
   }
 
   .debug-canvas {

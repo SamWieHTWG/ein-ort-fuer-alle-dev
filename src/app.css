@@ -64,22 +64,17 @@ main {
   }
 }
 
-.intro-image {
+.bubble-area {
   order: 1;
   min-width: 0;
-  overflow: hidden;
+  position: relative;
+  min-height: 220px;
 }
 
 @media (min-width: 1024px) {
-  .intro-image {
+  .bubble-area {
     order: 0;
   }
-}
-
-.intro-image img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* Typography */

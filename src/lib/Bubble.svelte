@@ -38,29 +38,12 @@
     function getBounds() {
       const size = getSize();
       const rect = container.getBoundingClientRect();
-      // On desktop, the container may be shorter than the bubble size,
-      // so use negative minY to let bubbles float above
-      const isMobile = window.innerWidth < mobileBreakpoint;
-      if (isMobile) {
-        return {
-          minX: 0,
-          maxX: rect.width - size,
-          minY: 0,
-          maxY: rect.height - size,
-          available: rect.width >= size && rect.height >= size,
-        };
-      }
-      // Desktop: bounce between top of page and bottom of header bar
-      // minY: negative offset so bubbles can reach the top of the viewport
-      // maxY: bottom of header bar, relative to the container's position
-      const headerBar = container.parentElement as HTMLElement;
-      const headerRect = headerBar ? headerBar.getBoundingClientRect() : rect;
       return {
         minX: 0,
         maxX: rect.width - size,
-        minY: -rect.top,
-        maxY: headerRect.bottom - rect.top - size,
-        available: rect.width >= size && (headerRect.bottom) >= size * 0.5,
+        minY: 0,
+        maxY: rect.height - size,
+        available: rect.width >= size && rect.height >= size,
       };
     }
 
