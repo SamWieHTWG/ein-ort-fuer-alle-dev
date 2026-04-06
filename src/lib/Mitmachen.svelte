@@ -5,20 +5,17 @@
 <main>
   <Header />
 
-  <section class="intro">
+  <section class="intro intro--full">
     <div class="intro-text">
       <h1>Mit&shy;machen</h1>
       <p class="tagline">Die Nachbarschaft ist eingeladen, sich am Aufbau, an der Gestaltung und an der Nutzung zu beteiligen.</p>
-    </div>
-    <div class="intro-image">
-      <img src="/B1.jpg" alt="Mitmachen beim Parklet" />
     </div>
   </section>
 
   <section class="content">
 
     <div class="pair">
-      <div class="block">
+      <div class="block block--primary">
         <h2>Gemeinsam gestalten</h2>
         <p>
           Das Parklet ist ein Nachbarschaftsprojekt — getragen von Menschen aus dem Viertel, für
@@ -37,7 +34,7 @@
     </div>
 
     <div class="pair reverse">
-      <div class="block">
+      <div class="block block--secondary">
         <h2>Mögliche Aktivitäten</h2>
         <p>
           Das Parklet soll als offener Aufenthaltsort dienen — zum Sitzen, Liegen, Austauschen,
@@ -55,7 +52,7 @@
     </div>
 
     <div class="pair">
-      <div class="block">
+      <div class="block block--primary">
         <h2>Pflege</h2>
         <p>
           Reinigung, Pflanzenpflege, kleine Reparaturen — das alles regeln wir gemeinsam. Wer
@@ -72,22 +69,26 @@
 </main>
 
 <style>
+  :global(.intro--full) {
+    display: block;
+  }
+
   .pair {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
-    align-items: start;
+    align-items: stretch;
     margin-bottom: 3rem;
   }
 
   .pair.reverse > :first-child { order: 2; }
   .pair.reverse > :last-child  { order: 1; }
 
-  .pair > img,
-  .pair-images img {
+  .pair > img {
     width: 100%;
-    height: 240px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
     display: block;
   }
 
@@ -95,7 +96,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
-    align-self: start;
+    align-items: stretch;
+  }
+
+  .pair-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
   }
 
   @media (max-width: 700px) {
@@ -104,5 +113,9 @@
     }
     .pair.reverse > :first-child { order: 0; }
     .pair.reverse > :last-child  { order: 0; }
+    .pair > img,
+    .pair-images img {
+      height: auto;
+    }
   }
 </style>

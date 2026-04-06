@@ -5,20 +5,17 @@
 <main>
   <Header />
 
-  <section class="intro">
+  <section class="intro intro--full">
     <div class="intro-text">
       <h1>Unser Parklet</h1>
       <p class="tagline">Ein offener, nicht-kommerzieller Begegnungsort für die Nachbar*innenschaft im Lehenviertel.</p>
-    </div>
-    <div class="intro-image">
-      <img src="/B3.jpg" alt="Parklet Alexanderstraße" />
     </div>
   </section>
 
   <section class="content">
 
     <div class="pair">
-      <div class="block">
+      <div class="block block--primary">
         <h2>Was ist ein Parklet?</h2>
         <p>
           Parklets sind temporäre Erweiterungen des öffentlichen Raums, die auf der Fläche eines oder
@@ -32,12 +29,11 @@
       </div>
       <div class="pair-images">
         <img src="/B1.jpg" alt="Parklet Impression" />
-        <img src="/B5.jpg" alt="Parklet Impression" />
       </div>
     </div>
 
     <div class="pair reverse">
-      <div class="block">
+      <div class="block block--secondary">
         <h2>Das Parklet</h2>
         <p>
           Unser Parklet hat in der Katharinenstraße bereits einige Jahre gelebt — als Ort für
@@ -57,7 +53,7 @@
     </div>
 
     <div class="pair">
-      <div class="block">
+      <div class="block block--primary">
         <h2>Warum ein Parklet im Lehenviertel?</h2>
         <p>
           Das Lehenviertel ist ein lebendiges, dicht besiedeltes Stadtviertel — mit vielen Menschen,
@@ -73,13 +69,12 @@
         </ul>
       </div>
       <div class="pair-images">
-        <img src="/B4.jpg" alt="Parklet Gemeinschaft" />
         <img src="/B6.jpg" alt="Parklet Nachbarschaft" />
       </div>
     </div>
 
     <div class="pair reverse">
-      <div class="block">
+      <div class="block block--secondary">
         <h2>Der Standort</h2>
         <p>
           Das Parklet entsteht in der Alexanderstraße im Lehenviertel — mitten im Viertel, gut
@@ -94,29 +89,26 @@
 </main>
 
 <style>
+  :global(.intro--full) {
+    display: block;
+  }
+
   .pair {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
-    align-items: start;
+    align-items: stretch;
     margin-bottom: 3rem;
-    background:
-      linear-gradient(to right,
-        transparent calc(50% - 0.5px),
-        #000 calc(50% - 0.5px),
-        #000 calc(50% + 0.5px),
-        transparent calc(50% + 0.5px)
-      );
   }
 
   .pair.reverse > :first-child { order: 2; }
   .pair.reverse > :last-child  { order: 1; }
 
-  .pair > img,
-  .pair-images img {
+  .pair > img {
     width: 100%;
-    height: 240px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
     display: block;
   }
 
@@ -124,15 +116,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
-    align-self: start;
+    align-items: stretch;
+  }
+
+  .pair-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
   }
 
   @media (max-width: 700px) {
     .pair {
       grid-template-columns: 1fr;
-      background: none;
     }
     .pair.reverse > :first-child { order: 0; }
     .pair.reverse > :last-child  { order: 0; }
+    .pair > img,
+    .pair-images img {
+      height: auto;
+    }
   }
 </style>

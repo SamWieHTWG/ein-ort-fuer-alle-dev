@@ -122,6 +122,28 @@ h1 {
   margin-bottom: 2.5rem;
 }
 
+.block--primary {
+  background-color: #7a0000;
+  color: #fff;
+  padding: 1.5rem;
+}
+
+.block--secondary {
+  background-color: #cc7a00;
+  color: #fff;
+  padding: 1.5rem;
+}
+
+.block--primary h2,
+.block--secondary h2 {
+  color: #fff;
+}
+
+.block--primary a,
+.block--secondary a {
+  color: #fff;
+}
+
 h2 {
   font-size: 2rem;
   font-weight: 900;
