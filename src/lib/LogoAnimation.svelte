@@ -424,6 +424,13 @@
     transform: translate(-50%, -50%) rotate(var(--er));
   }
 
+  @media (max-width: 700px) {
+    .letter {
+      font-weight: 700;
+      font-size: clamp(20px, 14cqw, 60px);
+    }
+  }
+
   .embedded-img {
     position: absolute;
     height: 65%;

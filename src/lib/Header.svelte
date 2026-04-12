@@ -55,6 +55,15 @@
     display: block;
   }
 
+  @media (max-width: 700px) {
+    .logo-sticky {
+      padding: 0 0.5rem;
+    }
+    .logo-area {
+      width: 95%;
+    }
+  }
+
   /* Fixed hamburger + nav in top-right corner */
   .hamburger-fixed {
     position: fixed;
