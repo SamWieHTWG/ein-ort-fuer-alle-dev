@@ -6,11 +6,13 @@
     label?: string;
     color?: string;
     hoverColor?: string;
+    textColor?: string;
+    hoverTextColor?: string;
     zIndex?: number;
     speed?: number;
   }
 
-  let { href = '/mitmachen', label = 'Mitmachen', color = '#7954A2', hoverColor = '#2d1d3f', zIndex = 10, speed = 1 }: Props = $props();
+  let { href = '/mitmachen', label = 'Mitmachen', color = '#7954A2', hoverColor = '#2d1d3f', textColor = '#fff', hoverTextColor = '#fff', zIndex = 10, speed = 1 }: Props = $props();
 
   let el: HTMLAnchorElement;
   let x = $state(0);
@@ -21,8 +23,8 @@
   let dy = (0.3 + Math.random() * 0.3) * (Math.random() < 0.5 ? -1 : 1);
   let animId: number;
 
-  const desktopSize = 105;
-  const mobileSize = 70;
+  const desktopSize = 155;
+  const mobileSize = 105;
   const mobileBreakpoint = 640;
 
   function getSize() {
@@ -106,7 +108,7 @@
   bind:this={el}
   href={href}
   class:hidden={!visible}
-  style="transform: translate({x}px, {y}px); z-index: {zIndex}; --hover-color: {hoverColor}; width: {currentSize}px; height: {currentSize}px;"
+  style="transform: translate({x}px, {y}px); z-index: {zIndex}; --hover-color: {hoverColor}; --text-color: {textColor}; --hover-text-color: {hoverTextColor}; width: {currentSize}px; height: {currentSize}px;"
 >
   <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
     <circle cx="35" cy="35" r="34" fill={color} />
@@ -140,13 +142,18 @@
   }
 
   text {
-    fill: #fff;
+    fill: var(--text-color);
     font-size: 11px;
     font-weight: 700;
     font-family: inherit;
+    transition: fill 0.2s;
   }
 
   a:hover circle {
     fill: var(--hover-color);
+  }
+
+  a:hover text {
+    fill: var(--hover-text-color);
   }
 </style>

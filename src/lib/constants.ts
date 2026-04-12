@@ -1,3 +1,3 @@
-export const COLOR_PRIMARY = '#7a0000';
-export const COLOR_SECONDARY = '#cc7a00';
-export const COLOR_BACKGROUND = '#81b673';
+export const COLOR_PRIMARY = '#1800AD';
+export const COLOR_SECONDARY = '#FFEE59';
+export const COLOR_BACKGROUND = '#B1D4E0';

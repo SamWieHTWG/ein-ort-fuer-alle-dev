@@ -4,11 +4,12 @@
 
 <Header />
 
+<div class="content-border"></div>
 <main>
   <section class="intro intro--full">
     <div class="intro-text block--secondary">
       <h1>Mit&shy;machen</h1>
-      <p class="tagline">Die Nachbarschaft ist eingeladen, sich am Aufbau, an der Gestaltung und an der Nutzung zu beteiligen.</p>
+      <p class="tagline">Das Parklet lebt davon, dass viele Menschen sich beteiligen. Mach mit!</p>
     </div>
   </section>
 
@@ -18,13 +19,12 @@
       <div class="block block--primary">
         <h2>Gemeinsam gestalten</h2>
         <p>
-          Das Parklet ist ein Nachbarschaftsprojekt — getragen von Menschen aus dem Viertel, für
-          Menschen aus dem Viertel. Jede*r ist eingeladen mitzumachen: beim Aufbau, bei der
-          Gestaltung oder einfach durch die Nutzung.
+          Das Parklet soll ein offener Ort für die Nachbar*innenschaft werden — getragen von
+          Menschen aus dem Viertel, für Menschen aus dem Viertel. Jede*r ist eingeladen
+          mitzumachen: beim Aufbau, bei der Gestaltung oder einfach durch die Nutzung.
         </p>
         <p>
-          Ein Ort entsteht erst dann wirklich, wenn ihn alle mitgestalten und sich gemeinsam dafür
-          verantwortlich fühlen.
+          Oder einfach dadurch, dass du den Ort nutzt und mit Leben füllst.
         </p>
       </div>
       <div class="pair-img pair-img--double">
@@ -35,18 +35,21 @@
 
     <div class="pair reverse">
       <div class="block block--secondary">
-        <h2>Mögliche Aktivitäten</h2>
-        <p>
-          Das Parklet soll als offener Aufenthaltsort dienen — zum Sitzen, Liegen, Austauschen,
-          Lesen oder einfach zum Verweilen. Mögliche Aktivitäten sind:
-        </p>
+        <h2>Wie du dich einbringen kannst</h2>
+        <p>Zum Beispiel:</p>
         <ul>
-          <li>Gemeinsame Nachbar*innenschaftsessen</li>
-          <li>Bastelnachmittage und kreative Formate</li>
-          <li>Spontaner Austausch zwischen Bewohner*innen und Passant*innen</li>
-          <li>Alltägliches Zusammensitzen im öffentlichen Raum</li>
+          <li>Beim Mitbauen und Reparieren</li>
+          <li>Beim Gestalten und Planen</li>
+          <li>Mit Grafikdesign für die Beschilderung</li>
+          <li>Mit Texten oder Öffentlichkeitsarbeit</li>
+          <li>Mit Spielideen für Kinder</li>
+          <li>Mit kleinen Workshops</li>
+          <li>Beim Gießen der Pflanzen</li>
+          <li>Beim Nähen wetterfester Sitzkissen</li>
+          <li>Beim Organisieren von Nachbar*innenschaftsessen</li>
+          <li>Beim Aufräumen und Sauberhalten</li>
         </ul>
-        <p>Du hast eine Idee? Dann melde dich bei uns!</p>
+        <p>Du hast eine eigene Idee? Dann melde dich bei uns!</p>
       </div>
       <div class="pair-img">
         <img src="/B5.jpg" alt="Parklet Begrünung und Pflege" />
@@ -55,11 +58,14 @@
 
     <div class="pair">
       <div class="block block--primary">
-        <h2>Pflege</h2>
+        <h2>Kontakt</h2>
         <p>
-          Reinigung, Pflanzenpflege, kleine Reparaturen — das alles regeln wir gemeinsam. Wer
-          Lust hat, mitzuhelfen, ist herzlich willkommen.
+          Wenn du Lust hast mitzumachen oder einfach neugierig bist, melde dich gerne:
         </p>
+        <ul class="contact-list">
+          <li>E-Mail: <a href="mailto:info@anlehnen.eu">info@anlehnen.eu</a></li>
+          <li>Instagram: <a href="https://instagram.com/anlehnen.70180" target="_blank" rel="noopener">@anlehnen.70180</a></li>
+        </ul>
       </div>
       <div class="pair-img pair-img--double">
         <img src="/B2.jpg" alt="Veranstaltung am Parklet" />

@@ -25,6 +25,7 @@
   </button>
 
   <nav class="nav-mobile" class:open={menuOpen} aria-hidden={!menuOpen}>
+    <a href="/" onclick={() => menuOpen = false}>Startseite</a>
     <a href="/unser-parklet" onclick={() => menuOpen = false}>Unser Parklet</a>
     <a href="/mitmachen" onclick={() => menuOpen = false}>Mitmachen</a>
     <a href="/kontakt" onclick={() => menuOpen = false}>Kontakt</a>
@@ -36,11 +37,20 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .logo-sticky {
+      padding: 0 3rem;
+    }
   }
 
   .logo-area {
     width: 70%;
-    padding: 1rem;
+    padding: 1rem 0;
     text-decoration: none;
     display: block;
   }
@@ -91,7 +101,7 @@
 
   /* Nav dropdown */
   .nav-mobile {
-    background-color: #81b673;
+    background-color: #B1D4E0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

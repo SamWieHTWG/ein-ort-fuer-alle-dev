@@ -4,11 +4,12 @@
 
 <Header />
 
+<div class="content-border"></div>
 <main>
   <section class="intro intro--full">
     <div class="intro-text block--secondary">
       <h1>Unser Parklet</h1>
-      <p class="tagline">Ein offener, nicht-kommerzieller Begegnungsort für die Nachbar*innenschaft im Lehenviertel.</p>
+      <p class="tagline">Ein Parkplatz weniger, ein Platz zum Anlehnen mehr — mitten im Lehenviertel.</p>
     </div>
   </section>
 
@@ -18,9 +19,8 @@
       <div class="block block--primary">
         <h2>Was ist ein Parklet?</h2>
         <p>
-          Parklets sind temporäre Erweiterungen des öffentlichen Raums, die auf der Fläche eines oder
-          zweier Parkplätze entstehen. Sie verwandeln einen kleinen Teil der Straße in einen Ort für
-          Aufenthalt, Begegnung und gemeinschaftliche Nutzung.
+          Ein Parklet ist eine kleine Erweiterung des öffentlichen Raums:
+          Ein Parkplatz wird zu einem Mini-Platz für Menschen statt für Autos.
         </p>
         <p>
           Parklets stehen allen Menschen frei zur Verfügung — mit Sitzgelegenheiten, Pflanzen,
@@ -36,17 +36,17 @@
       <div class="block block--secondary">
         <h2>Das Parklet</h2>
         <p>
-          Unser Parklet hat in der Katharinenstraße bereits einige Jahre gelebt — als Ort für
-          Begegnung, gemeinsames Essen, kleine Workshops und spontanen Austausch. Jetzt bekommt
-          es einen neuen Platz in der Alexanderstraße.
+          Wir haben die Möglichkeit, ein bestehendes Parklet aus der Katharinenstraße zu übernehmen
+          und gemeinsam weiterzuentwickeln. Jetzt möchten wir es gemeinsam aufbauen, reparieren und
+          neu gestalten.
         </p>
-        <p class="subheading">Was euch erwartet:</p>
+        <p class="subheading">Es gibt bereits:</p>
         <ul>
-          <li>Liege- und Sitzfläche zum Entspannen</li>
-          <li>Großer Tisch für gemeinsame Essen und Veranstaltungen</li>
-          <li>Modulare Sitzbänke</li>
-          <li>Begrünung durch integrierte Pflanzkübel</li>
-          <li>Sonnenschutz durch ein Tarp</li>
+          <li>Eine bequeme Liegefläche</li>
+          <li>Einen großen Tisch mit Sitzbereich</li>
+          <li>Modulare Bänke</li>
+          <li>Pflanzkübel</li>
+          <li>Ein Sonnensegel</li>
         </ul>
       </div>
       <div class="pair-img">
@@ -56,18 +56,19 @@
 
     <div class="pair">
       <div class="block block--primary">
-        <h2>Warum ein Parklet im Lehenviertel?</h2>
+        <h2>Was wir uns wünschen</h2>
         <p>
-          Das Lehenviertel ist ein lebendiges, dicht besiedeltes Stadtviertel — mit vielen Menschen,
-          aber nur wenigen Orten im Freien, an denen man einfach verweilen kann. Ein eigener Balkon
-          oder Garten ist hier nicht selbstverständlich.
+          Viele Menschen im Viertel haben keinen Balkon oder Garten. Gleichzeitig gibt es nur wenige
+          nicht-kommerzielle Orte, an denen Menschen einfach draußen zusammensitzen können.
+          Mit ANLEHNEN möchten wir einen Treffpunkt für alle schaffen.
         </p>
-        <p>Das Parklet soll diese Lücke schließen: ein Ort für alle, kostenlos, ohne Konsumzwang.</p>
+        <p>Ein Ort ...</p>
         <ul>
-          <li>Frei zugänglich und nicht-kommerziell</li>
-          <li>Treffpunkt für Nachbar*innen</li>
-          <li>Raum für gemeinsame Aktivitäten und spontane Begegnungen</li>
-          <li>Mehr Grün und Aufenthaltsqualität im Straßenraum</li>
+          <li>für Begegnung und Austausch in der Nachbar*innenschaft</li>
+          <li>zum gemeinsam Essen, Basteln und Entspannen</li>
+          <li>zum Spielen für Kinder, Gespräche, kleine Workshops und spontane Treffen</li>
+          <li>der mehr Grün in die Straße bringt</li>
+          <li>an dem man erfährt: Wer wohnt eigentlich nebenan?</li>
         </ul>
       </div>
       <div class="pair-img">
@@ -79,7 +80,7 @@
       <div class="block block--secondary">
         <h2>Der Standort</h2>
         <p>
-          Das Parklet entsteht in der Alexanderstraße im Lehenviertel — mitten im Viertel, gut
+          Am liebsten unter der großen Linde in der Alexanderstraße — mitten im Viertel, gut
           erreichbar für alle. Ein Ort, an dem man einfach vorbeikommen, bleiben und ins Gespräch
           kommen kann.
         </p>
