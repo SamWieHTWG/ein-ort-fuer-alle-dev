@@ -33,45 +33,25 @@
       </div>
     </div>
 
-    <div class="pair reverse">
-      <div class="block block--secondary">
-        <h2>Wie du dich einbringen kannst</h2>
-        <p>Zum Beispiel:</p>
-        <ul>
-          <li>Beim Mitbauen und Reparieren</li>
-          <li>Beim Gestalten und Planen</li>
-          <li>Mit Grafikdesign für die Beschilderung</li>
-          <li>Mit Texten oder Öffentlichkeitsarbeit</li>
-          <li>Mit Spielideen für Kinder</li>
-          <li>Mit kleinen Workshops</li>
-          <li>Beim Gießen der Pflanzen</li>
-          <li>Beim Nähen wetterfester Sitzkissen</li>
-          <li>Beim Organisieren von Nachbar*innenschaftsessen</li>
-          <li>Beim Aufräumen und Sauberhalten</li>
-        </ul>
-        <p>Du hast eine eigene Idee? Dann melde dich bei uns!</p>
-      </div>
-      <div class="pair-img">
-        <img src="/B5.jpg" alt="Parklet Begrünung und Pflege" />
-      </div>
+    <div class="block block--secondary">
+      <h2>Wie du dich einbringen kannst</h2>
+      <p>Zum Beispiel:</p>
+      <ul>
+        <li>Beim Mitbauen und Reparieren</li>
+        <li>Beim Gestalten und Planen</li>
+        <li>Mit Grafikdesign für die Beschilderung</li>
+        <li>Mit Texten oder Öffentlichkeitsarbeit</li>
+        <li>Mit Spielideen für Kinder</li>
+        <li>Mit kleinen Workshops</li>
+        <li>Beim Gießen der Pflanzen</li>
+        <li>Beim Nähen wetterfester Sitzkissen</li>
+        <li>Beim Organisieren von Nachbar*innenschaftsessen</li>
+        <li>Beim Aufräumen und Sauberhalten</li>
+      </ul>
+      <p>Du hast eine eigene Idee? Dann <a href="/kontakt">melde dich bei uns!</a></p>
     </div>
 
-    <div class="pair">
-      <div class="block block--primary">
-        <h2>Kontakt</h2>
-        <p>
-          Wenn du Lust hast mitzumachen oder einfach neugierig bist, melde dich gerne:
-        </p>
-        <ul class="contact-list">
-          <li>E-Mail: <a href="mailto:info@anlehnen.eu">info@anlehnen.eu</a></li>
-          <li>Instagram: <a href="https://instagram.com/anlehnen.70180" target="_blank" rel="noopener">@anlehnen.70180</a></li>
-        </ul>
-      </div>
-      <div class="pair-img pair-img--double">
-        <img src="/B2.jpg" alt="Veranstaltung am Parklet" />
-        <img src="/B7.jpg" alt="Leben auf dem Parklet" />
-      </div>
-    </div>
+ 
 
   </section>
 </main>
@@ -89,10 +69,7 @@
     margin-bottom: 3rem;
   }
 
-  .pair.reverse > :first-child { order: 2; }
-  .pair.reverse > :last-child  { order: 1; }
-
-  .pair .block {
+.pair .block {
     margin-bottom: 0;
   }
 
@@ -131,9 +108,7 @@
     .pair {
       grid-template-columns: 1fr;
     }
-    .pair.reverse > :first-child { order: 0; }
-    .pair.reverse > :last-child  { order: 0; }
-    .pair-img {
+.pair-img {
       min-height: 220px;
     }
   }

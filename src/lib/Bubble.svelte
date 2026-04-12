@@ -89,11 +89,10 @@
       }
 
       if (bounced) {
-        dx += (Math.random() - 0.5) * 0.5;
-        dy += (Math.random() - 0.5) * 0.5;
-        const newMagnitude = Math.sqrt(dx * dx + dy * dy);
-        dx = (dx / newMagnitude) * magnitude;
-        dy = (dy / newMagnitude) * magnitude;
+        // Strong random deflection to spread bubbles apart
+        const angle = Math.random() * Math.PI * 2;
+        dx = Math.cos(angle) * magnitude;
+        dy = Math.sin(angle) * magnitude;
       }
 
       animId = requestAnimationFrame(animate);

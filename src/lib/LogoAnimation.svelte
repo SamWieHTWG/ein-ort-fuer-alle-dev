@@ -1,14 +1,14 @@
 <svelte:head>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/more-sugar" rel="stylesheet">
 </svelte:head>
 
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { COLOR_PRIMARY, COLOR_SECONDARY } from '$lib/constants';
 
   const LETTERS = ['A', 'N', 'L', 'E', 'H', 'N', 'E', 'N'];
   const HIGHLIGHT_INDEX = 5;
-  const COLOR_RED = '#7a0000';
-  const COLOR_ORANGE = '#cc7a00';
 
   let DEBUG = false;
 
@@ -338,12 +338,17 @@
       <canvas class="debug-canvas" bind:this={canvasEl}></canvas>
     {/if}
 
+    <div
+      class="bg-circle"
+      style="background-color: {COLOR_SECONDARY};"
+    ></div>
+
     {#each LETTERS as letter, i}
       <span
         class="letter"
         class:animate={animated || DEBUG}
         style="
-          --c: {i === HIGHLIGHT_INDEX ? COLOR_ORANGE : COLOR_RED};
+          --c: {i === HIGHLIGHT_INDEX ? COLOR_SECONDARY : COLOR_PRIMARY};
           left: {(animated || DEBUG) ? endPcts[i].x : startPcts[i].x}%;
           top: {(animated || DEBUG) ? endPcts[i].y : startPcts[i].y}%;
           --er: {endPcts[i].rot.toFixed(2)}deg;
@@ -352,17 +357,16 @@
       >{letter}</span>
     {/each}
 
-    <img
+    <div
       class="embedded-img"
       class:animate={animated || DEBUG}
-      src="/anlehnen/4_embedded_0_black.png"
-      alt=""
       style="
         left: {(animated || DEBUG) ? imgEndPct.x : imgStartPct.x}%;
         top: {(animated || DEBUG) ? imgEndPct.y : imgStartPct.y}%;
         --d: {HIGHLIGHT_INDEX * 50}ms;
+        --img-color: {COLOR_PRIMARY};
       "
-    />
+    ></div>
   </div>
 </div>
 
@@ -386,10 +390,21 @@
     width: 100%;
   }
 
+  .bg-circle {
+    position: absolute;
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    top: -25%;
+    left: 5%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .letter {
     position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(18px, 13cqw, 74px);
+    font-family: 'More Sugar', 'Montserrat', sans-serif;
+    font-size: clamp(28px, 20cqw, 115px);
     font-weight: 900;
     line-height: 1;
     color: var(--c);
@@ -412,10 +427,18 @@
   .embedded-img {
     position: absolute;
     height: 65%;
+    aspect-ratio: 1 / 1;
     transform: translate(0, -60%);
     z-index: 0;
     pointer-events: none;
     user-select: none;
+    background-color: var(--img-color);
+    -webkit-mask-image: url('/anlehnen/4_embedded_0_black.png');
+    mask-image: url('/anlehnen/4_embedded_0_black.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     transition: left 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95),
                 top  1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
     transition-delay: var(--d);

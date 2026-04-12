@@ -50,30 +50,25 @@
         </ul>
       </div>
       <div class="pair-img">
-        <img src="/B2.jpg" alt="Parklet Begrünung" />
+        <img src="/B6.jpg" alt="Das Parklet" />
       </div>
     </div>
 
-    <div class="pair">
-      <div class="block block--primary">
-        <h2>Was wir uns wünschen</h2>
-        <p>
-          Viele Menschen im Viertel haben keinen Balkon oder Garten. Gleichzeitig gibt es nur wenige
-          nicht-kommerzielle Orte, an denen Menschen einfach draußen zusammensitzen können.
-          Mit ANLEHNEN möchten wir einen Treffpunkt für alle schaffen.
-        </p>
-        <p>Ein Ort ...</p>
-        <ul>
-          <li>für Begegnung und Austausch in der Nachbar*innenschaft</li>
-          <li>zum gemeinsam Essen, Basteln und Entspannen</li>
-          <li>zum Spielen für Kinder, Gespräche, kleine Workshops und spontane Treffen</li>
-          <li>der mehr Grün in die Straße bringt</li>
-          <li>an dem man erfährt: Wer wohnt eigentlich nebenan?</li>
-        </ul>
-      </div>
-      <div class="pair-img">
-        <img src="/B6.jpg" alt="Parklet Nachbarschaft" />
-      </div>
+    <div class="block block--primary">
+      <h2>Was wir uns wünschen</h2>
+      <p>
+        Viele Menschen im Viertel haben keinen Balkon oder Garten. Gleichzeitig gibt es nur wenige
+        nicht-kommerzielle Orte, an denen Menschen einfach draußen zusammensitzen können.
+        Mit ANLEHNEN möchten wir einen Treffpunkt für alle schaffen.
+      </p>
+      <p>Ein Ort ...</p>
+      <ul>
+        <li>für Begegnung und Austausch in der Nachbar*innenschaft</li>
+        <li>zum gemeinsam Essen, Basteln und Entspannen</li>
+        <li>zum Spielen für Kinder, Gespräche, kleine Workshops und spontane Treffen</li>
+        <li>der mehr Grün in die Straße bringt</li>
+        <li>an dem man erfährt: Wer wohnt eigentlich nebenan?</li>
+      </ul>
     </div>
 
     <div class="pair reverse">
@@ -86,7 +81,7 @@
         </p>
       </div>
       <div class="pair-img">
-        <img src="/B7.jpg" alt="Parklet im Viertel" />
+        <img src="/anlehnen/satelliet.jpeg" alt="Standort Alexanderstraße" />
       </div>
     </div>
 

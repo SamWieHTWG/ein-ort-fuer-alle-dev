@@ -81,7 +81,7 @@
     display: block;
     width: 2rem;
     height: 4px;
-    background: #000;
+    background: #1800AD;
     transition: transform 0.25s ease, opacity 0.25s ease;
     transform-origin: center;
   }
@@ -120,7 +120,7 @@
   }
 
   .nav-mobile a {
-    color: #000;
+    color: #1800AD;
     text-decoration: none;
     font-size: 1.125rem;
   }
