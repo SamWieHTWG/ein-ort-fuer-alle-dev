@@ -28,8 +28,7 @@
 
       <h2>Wo du uns findest</h2>
       <p>
-        Du findest uns in der Alexanderstraße im Lehenviertel, Stuttgart —
-        am liebsten unter der großen Linde. Komm einfach vorbei!
+        Du findest uns hoffentlich bald in der Alexanderstraße, Ecke Altenberger Straße, unter der großen Linde. Bis dahin drück uns die Daumen oder unterstütze uns dabei, dieses Träumchen wahr werden zu lassen
       </p>
     </div>
   </section>
